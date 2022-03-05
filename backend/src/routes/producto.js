@@ -5,7 +5,7 @@ const router = express.Router();//creo un enrutador
 const prodSchema = require("../models/producto"); //llamo model schema
 
 //create products
-router.post("/producto", (req, res) => {
+router.post("/productos", (req, res) => {
     const producto = prodSchema(req.body);
     producto
         .save()
@@ -15,7 +15,7 @@ router.post("/producto", (req, res) => {
 });
 
 //get all products
-router.get("/producto", (req, res) => {    
+router.get("/productos", (req, res) => {    
     prodSchema
         .find()
         .then((data) => res.json(data))
@@ -24,7 +24,7 @@ router.get("/producto", (req, res) => {
 });
 
 //get a products
-router.get("/producto/:id", (req, res) => { 
+router.get("/productos/:id", (req, res) => { 
     const {id} = req.params;   
     prodSchema
         .findById(id)
@@ -34,7 +34,7 @@ router.get("/producto/:id", (req, res) => {
 });
 
 //update a product
-router.put("/producto/:id", (req, res) => { 
+router.put("/productos/:id", (req, res) => { 
     const {id} = req.params;  
     const {nombre, precio, img, descripcion, idCategoria} = req.body;
     prodSchema
@@ -45,7 +45,7 @@ router.put("/producto/:id", (req, res) => {
 });
 
 //delete a product
-router.delete("/producto/:id", (req, res) => { 
+router.delete("/productos/:id", (req, res) => { 
     const {id} = req.params;  
     prodSchema
         .remove({ _id: id})
