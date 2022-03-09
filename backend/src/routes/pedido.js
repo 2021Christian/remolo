@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const pedidoSchema = require("../models/pedido");//traigo el modelo Pedido
+const pedidoSchema = require("../models/Pedido");//traigo el modelo Pedido
 
 //create pedido
 router.post("/pedidos", (req, res) => {
@@ -44,7 +44,7 @@ router.put("/pedidos/:id", (req, res) => {
 router.delete("/pedidos/:id", (req, res) => { 
     const {id} = req.params;  
     pedidoSchema
-        .remove({_id: id})
+        .deleteOne({_id: id}) //se cambia el .remove por Node Warning
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
         

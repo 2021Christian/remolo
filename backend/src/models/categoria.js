@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const categoriaSchema = mongoose.Schema({
   nombre: {
-    type: Number,
+    type: String,
     required: true
   },
   img: {
@@ -11,4 +11,4 @@ const categoriaSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Categoria', categoriaSchema);
+module.exports = mongoose.model('Categorias', categoriaSchema);

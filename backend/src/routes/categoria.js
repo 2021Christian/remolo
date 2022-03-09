@@ -1,10 +1,10 @@
 const express = require("express");
-const router = express.Router();//creo un enrutador
-const categoriaSchema = require("../models/categoria"); //llamo model schema
+const router = express.Router();
+const categoriaSchema = require("../models/Categoria"); //llamo model schema
 
 //create Categoria
 router.post("/categorias", (req, res) => {
-    const categoria = prodSchema(req.body);
+    const categoria = categoriaSchema(req.body);
     categoria
         .save()
         .then((data) => res.json(data))
@@ -41,8 +41,8 @@ router.put("/categorias/:id", (req, res) => {
 //delete a categoria
 router.delete("/categorias/:id", (req, res) => { 
     const {id} = req.params;  
-    prodSchema
-        .remove({ _id: id})
+    categoriaSchema
+        .deleteOne({ _id: id}) //se cambia el .remove por Node Warning
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 });

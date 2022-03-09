@@ -2,7 +2,7 @@ const express = require("express");
 //const productos = require("../models/producto");
 const router = express.Router();//creo un enrutador
 
-const prodSchema = require("../models/producto"); //llamo model schema
+const prodSchema = require("../models/Producto"); //llamo model schema
 
 //create products
 router.post("/productos", (req, res) => {

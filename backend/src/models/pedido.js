@@ -1,6 +1,20 @@
 const mongoose = require("mongoose");
 
 const pedidoSchema = mongoose.Schema({
+  detalle: [{
+    idProducto: {
+      type:String,
+      required: true
+    },
+    cantidad: {
+      type: Number,
+      required: true
+    },
+    precioUnitario: {
+      type: Number,
+      required:true
+    }
+  }],
   /*
   detalle: [{
     producto: {
