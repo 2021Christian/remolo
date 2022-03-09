@@ -1,7 +1,7 @@
 require('dotenv').config();// llama a las variables de entorno
-
 const express = require('express');
 const cors = require("cors");
+
 const app = express();
 
 /*Importo las rutas*/

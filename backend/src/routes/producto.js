@@ -1,7 +1,7 @@
 const express = require("express");
 //const productos = require("../models/producto");
 const router = express.Router();//creo un enrutador
-
+// const categoriaSchema = require("../models/Categoria");
 const prodSchema = require("../models/Producto"); //llamo model schema
 
 //create products
@@ -48,7 +48,7 @@ router.put("/productos/:id", (req, res) => {
 router.delete("/productos/:id", (req, res) => { 
     const {id} = req.params;  
     prodSchema
-        .remove({ _id: id})
+        .deleteOne({ _id: id}) //se cambia el .remove por Node Warning
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
         

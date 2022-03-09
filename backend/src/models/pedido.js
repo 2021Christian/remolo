@@ -1,4 +1,45 @@
-const mongoose = require("mongoose");
+const { Schema, model} = require('mongoose');
+
+const pedidoSchema = new Schema({
+  detalle: [{
+    idProducto: {
+      type:String,
+      required: true
+    },
+    cantidad: {
+      type: Number,
+      required: true
+    },
+    precioUnitario: {
+      type: Number,
+      required:true
+    }
+  }],
+  precioTotal: {
+    type: Number,
+    required: true
+  },
+  nombre: {
+    type: String,
+    required: true
+  },
+  direccion: {
+    type: String,
+    required: true
+  },
+  telefono: {
+    type: String,
+    required: true
+  },
+  nota: {
+    type: String,
+    required: false
+  }
+});
+
+module.exports = model('Pedido', pedidoSchema);
+
+/*const mongoose = require("mongoose");
 
 const pedidoSchema = mongoose.Schema({
   detalle: [{
@@ -28,7 +69,7 @@ const pedidoSchema = mongoose.Schema({
       precioUnitario: Number
       
   }],*/
-
+/*
   precioTotal: {
     type: Number,
     required: true
@@ -52,4 +93,5 @@ const pedidoSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Pedidos', pedidoSchema);
+module.exports = mongoose.model('Pedido', pedidoSchema);
+*/
