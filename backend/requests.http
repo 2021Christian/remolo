@@ -35,10 +35,11 @@ POST http://localhost:3000/api/productos HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre": "Pruzzeta",
-    "precio": 950,
-    "img": "imgpizza",
-    "descripcion": "123Probando"
+    "nombre": "Empanadeta con idCategoria",
+    "precio": 150,
+    "img": "../assets/img_empanada.png",
+    "descripcion": "mil millones de puntos",
+    "categoria": "62118187afce1a3ee137dec0"
 }
 
 ### get all
@@ -71,15 +72,14 @@ Content-Type: application/json
 
 {
     "detalle": [
-        {"idProducto": "sadjsa123dsad", "cantidad": 2, "precioUnitario": 200},
-        {"idProducto": "zz123sadsad", "cantidad": 1, "precioUnitario": 1200},
-        {"idProducto": "erwrer234324", "cantidad": 22, "precioUnitario": 10},
-        {"idProducto": "wqerew312sdsad32d", "cantidad": 12, "precioUnitario": 500}
+        {"producto": "62105c72b67a5a720a6d4be6", "cantidad": 1},
+        {"producto": "622a8e3e925cc34246db0988", "cantidad": 2},
+        {"producto": "622a8dc9925cc34246db0986", "cantidad": 3}
         ],
-    "precioTotal":9999,
+    "precioTotal":2323,
     "nombre": "Christian",
     "direccion": "Calle abc",
-    "telefono": "3322224444",
+    "telefono": "111133335555",
     "nota": "grabo varios productos en detalle"
 }
 

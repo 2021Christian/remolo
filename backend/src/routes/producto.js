@@ -3,6 +3,8 @@ const express = require("express");
 const router = express.Router();//creo un enrutador
 // const categoriaSchema = require("../models/Categoria");
 const prodSchema = require("../models/Producto"); //llamo model schema
+// const Categoria = mongoose.model("Categoria");
+
 
 //create products
 router.post("/productos", (req, res) => {
@@ -17,7 +19,9 @@ router.post("/productos", (req, res) => {
 //get all products
 router.get("/productos", (req, res) => {    
     prodSchema
-        .find()
+        // .find({},(err,productos)=>{categoriaSchema.populate(productos, {path: "categoria"})})
+        .find().populate('categoria')
+        // .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
          
@@ -27,7 +31,7 @@ router.get("/productos", (req, res) => {
 router.get("/productos/:id", (req, res) => { 
     const {id} = req.params;   
     prodSchema
-        .findById(id)
+        .findById(id).populate('categoria')
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
         

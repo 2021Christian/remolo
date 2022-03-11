@@ -2,17 +2,10 @@ const { Schema, model} = require('mongoose');
 
 const pedidoSchema = new Schema({
   detalle: [{
-    idProducto: {
-      type:String,
-      required: true
-    },
+    producto: { type : Schema.ObjectId, ref : "Categoria" },
     cantidad: {
       type: Number,
       required: true
-    },
-    precioUnitario: {
-      type: Number,
-      required:true
     }
   }],
   precioTotal: {

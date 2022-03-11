@@ -17,8 +17,8 @@ const prodSchema = new Schema({
   descripcion: {
     type: String,
     required: true
-  }
-  // categoria: { type : Schema.ObjectId, ref : "Categoria" }  
+  },
+  categoria: { type : Schema.ObjectId, ref : "Categoria" }  
 });
 
 module.exports = model('Producto', prodSchema);

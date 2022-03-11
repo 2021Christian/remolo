@@ -14,7 +14,7 @@ router.post("/pedidos", (req, res) => {
 //get all pedidos
 router.get("/pedidos", (req, res) => {    
     pedidoSchema
-        .find()
+        .find().populate("detalle.producto")
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 });
@@ -23,7 +23,7 @@ router.get("/pedidos", (req, res) => {
 router.get("/pedidos/:id", (req, res) => { 
     const {id} = req.params;   
     pedidoSchema
-        .findById(id)
+        .findById(id).populate('producto')
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
         
