@@ -11,10 +11,10 @@ router.post("/pedidos", (req, res) => {
         .catch((error) => res.json({message: error}));
 });
 
-//get all pedidos
+//get all pedidos - CORREGIR!! trae null los id del producto y sus datos
 router.get("/pedidos", (req, res) => {    
     pedidoSchema
-        .find().populate("detalle.producto")
+        .find().populate("detalle")
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
 });
@@ -23,7 +23,7 @@ router.get("/pedidos", (req, res) => {
 router.get("/pedidos/:id", (req, res) => { 
     const {id} = req.params;   
     pedidoSchema
-        .findById(id).populate('producto')
+        .findById(id).populate('detalle')
         .then((data) => res.json(data))
         .catch((error) => res.json({message: error}));
         
