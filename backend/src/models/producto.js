@@ -18,6 +18,10 @@ const prodSchema = new Schema({
     type: String,
     required: true
   },
+  medida: {
+    type: String,
+    required:true
+  },
   categoria: { type : Schema.ObjectId, ref : "Categoria" }  
 });
 
